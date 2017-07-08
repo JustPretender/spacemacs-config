@@ -18,18 +18,19 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ;; javascript
      yaml
      python
-     octave
-     php
-     html
+     ;; octave
+     ;; php
+     ;; html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     better-defaults
      emacs-lisp
      (c-c++ :variables c-c++-enable-clang-support t)
      go
@@ -45,7 +46,6 @@ values."
      syntax-checking
      version-control
      semantic
-     auto-completion
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -260,15 +260,14 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq-default dotspacemacs-configuration-layers
-                '((c-c++ :variables c-c++-enable-clang-support t)))
   (setq-default c-default-style "linux")
+  (spacemacs/add-to-hooks 'linum-mode '(c-mode-hook c++-mode-hook))
   ;; Bind clang-format-region to C-M-tab in all modes:
   (global-set-key [C-M-tab] 'clang-format-region)
-  ;; Bind clang-format-buffer to tab on the c++-mode only:
-  (add-hook 'c-mode-hook 'clang-format-bindings)
-  (defun clang-format-bindings ()
-    (define-key c-mode-map [C-tab] 'clang-format-buffer))
+  ;; Rust
+  (setq rust-format-on-save t)
+  ;; company
+  (setq coqmpany-tooltip-align-annotations t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
