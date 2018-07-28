@@ -268,6 +268,8 @@ you should place your code here."
   (setq rust-format-on-save t)
   ;; company
   (setq coqmpany-tooltip-align-annotations t)
+  (setq-default magit-gerrit-ssh-creds "rostyslav@gerrit.airtame.com")
+  (setq-default magit-gerrit-remote "origin")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
