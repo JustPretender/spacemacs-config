@@ -17,8 +17,10 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(
-     ;; javascript
+   '(systemd
+     html
+     javascript
+     cmake
      yaml
      python
      ;; octave
@@ -38,21 +40,22 @@ values."
      gtags
      git
      markdown
-     org
+     (org :variables org-enable-github-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;;spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil)
      syntax-checking
      version-control
      semantic
      ggtags
+     rmsbolt
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(org-ref org-jira ox-jira)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -271,6 +274,7 @@ you should place your code here."
   (setq coqmpany-tooltip-align-annotations t)
   (setq-default magit-gerrit-ssh-creds "rostyslav@gerrit.airtame.com")
   (setq-default magit-gerrit-remote "origin")
+  (require 'ox-jira)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
