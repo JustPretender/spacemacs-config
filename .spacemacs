@@ -275,6 +275,9 @@ you should place your code here."
   (setq-default magit-gerrit-ssh-creds "rostyslav@gerrit.airtame.com")
   (setq-default magit-gerrit-remote "origin")
   (require 'ox-jira)
+  (setq org-agenda-files (quote ("~/Dropbox/docs/notes.org")))
+  (setq org-babel-load-languages (quote ((python . t) (emacs-lisp . t) (C . t))))
+  (setq org-src-tab-acts-natively t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
